@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js7-1</title>
+        <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <body>
+        <div id="counter">
+            <p>カウント：{{ count }}</p>
+            <button @click="addCount">＋１</button>
+            <button @click="subCount">−１</button>
+            <p>Greeting：{{ greeting }}</p>
+        </div>
+        <script>
+            const Counter1 = {
+                data() {
+                    return {
+                        count: 0
+                    }
+                },
+                methods: {
+                    addCount() {
+                        if(this.count<24){
+                            this.count+=1;
+                        }
+                    },
+                    subCount() {
+                        if(this.count>0){
+                            this.count-=1;
+                        }
+                    }
+                },
+                computed: {
+                    greeting() {
+                        if(this.count<=12){
+                            return "Good morning!"
+                        }else if(this.count<=18){
+                            return "Good agternoon!"
+                        }else{
+                            return "Good evening!"
+                        }
+                    }
+                }
+            }
+            const counter = Vue.createApp(Counter1)
+            counter.mount('#counter')
+        </script>
+    </body>
+</html>

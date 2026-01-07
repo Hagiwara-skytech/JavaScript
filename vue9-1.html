@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js9-1</title>
+        <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <body>
+        <div id="func">
+            <!--
+            <div v-once>function: {{ funcSquare(6) }}</div>
+            -->
+            <div>function: {{ funcSquare(6) }}</div>
+            <div>compute: {{ compSquare }}</div>
+            <div>num= {{ num }}</div>
+            <button @click="numIncriment">＋１</button>
+        </div>
+        <script>
+            const Func1 = {
+                data() {
+                    return {
+                        num: 5
+                    }
+                },
+                methods: {
+                    funcSquare(args) {
+                        console.log(('funcSqure'))
+                        return args * args
+                    },
+                    numIncriment(){
+                        this.num+=1;
+                    }
+                },
+                computed: {
+                    compSquare(){
+                        console.log(('compSqure'))
+                        return this.num * this.num 
+                    }
+                }
+            }
+            const func = Vue.createApp(Func1)
+            func.mount('#func')
+        </script>
+    </body>
+</html>

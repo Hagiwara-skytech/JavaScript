@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js9-2</title>
+        <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <body>
+        <div id="scope">
+            <div>変数のスコープ</div>
+            <div>function: {{ funcArgs(6) }}</div>
+            <div>compute: {{ compScope }}</div>
+        </div>
+        <script>
+            const Scope1 = {
+                data() {
+                    return {
+                        num: 5
+                    }
+                },
+                methods: {
+                    funcArgs(num) {
+                        return num
+                    },
+                },
+                computed: {
+                    compScope(){
+                        return this.num
+                    }
+                }
+            }
+            const scope = Vue.createApp(Scope1)
+            scope.mount('#scope')
+        </script>
+    </body>
+</html>
