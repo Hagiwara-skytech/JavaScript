@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript2-2</title>
+    </head>
+    <body>
+        <p>カウント：<span id="counter">0</span></p>
+        <button onclick="addClick()">＋１</button>
+        <button onclick="subClick()">−１</button>
+        <button onclick="greetingClick()">Greeting</button>
+        <p>挨拶：<span id="greeting"></span></p>
+        <script>
+            let count = 0;
+            let greeting = "";
+            function addClick() {
+                setCounter("Add");
+            }
+            function subClick() {
+                setCounter("Sub");
+            }
+            function setCounter(func) {
+                if(func==="Add"){
+                    if(count<24){
+                        count++;
+                    }
+                }else if(func==="Sub"){
+                    if(count>0){
+                        count--;
+                    }
+                }
+                document.getElementById("counter").textContent = count;
+            }
+            function greetingClick() {
+/*
+                if(count<=12){
+                    greeting="おはようございます！"
+                }else if(count<=18){
+                    greeting="こんにちは！"
+                }else{
+                    greeting="こんばんは！"
+                }
+*/
+                switch (true){
+                    case count<=12:
+                        greeting="おはようございます！";
+                        break;
+                    case count<=18:
+                        greeting="こんにちは！";
+                        break;
+                    default:
+                        greeting="こんばんは！";
+                        break;
+                }
+                document.getElementById("greeting").textContent = greeting;
+            }
+        </script>
+    </body>
+</html>

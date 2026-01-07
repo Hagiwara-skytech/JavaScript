@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js3-1</title>
+        <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <body>
+        <div id="variablesDisplay">
+            <div>xの結果：{{ x }}</div>
+            <div>yの結果：{{ y }}</div>
+            <div>wの結果：{{ w }}</div>
+            <div>zの結果：{{ z }}</div>
+            <div>sの結果：{{ s }}</div>
+        </div>
+        <script>
+            const Variables1 = {
+                data() {
+                    return {
+                        x: 5,
+                        y: 6,
+                        s: "Skytech"
+                    }
+                },
+                computed:{
+                    w: function(){ return 2 + 3; },
+                    z: function(){ return this.x + this.y + this.w ;}
+                /*
+                    Vue-style coding（recommended）
+                    w(){ return 2 + 3; },
+                    z(){ return this.x + this.y + this.w }
+                */
+                }
+            }
+            const variablesDisplay = Vue.createApp(Variables1)
+            variablesDisplay.mount('#variablesDisplay')
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js3-2</title>
+        <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <body>
+        <div id="variablesDisplay">
+            <div>xの結果：{{ x }}</div>
+            <div>returnの結果：{{ return }}</div>
+            <div>zの結果：{{ z }}</div>
+        </div>
+        <script>
+            const Variables1 = {
+                data() {
+                    return {
+                        x: 5,
+                        return: 6,
+                    }
+                },
+                /*
+                computed:{
+                    z(){ return this.x + this.y }
+                */
+                }
+            }
+            const variablesDisplay = Vue.createApp(Variables1)
+            variablesDisplay.mount('#variablesDisplay')
+        </script>
+    </body>
+</html>

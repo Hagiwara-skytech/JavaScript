@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript2-2</title>
+    </head>
+    <body>
+        <p>カウント：<span id="counter">0</span></p>
+        <button onclick="addClick()">＋１</button>
+        <button onclick="resetClick()">Reset</button>
+        <button onclick="subClick()">−１</button>
+        <script>
+            let count = 0;
+            function addClick() {
+                setCounter("Add");
+            }
+            function resetClick() {
+                setCounter("Res");
+            }
+            function subClick() {
+                setCounter("Sub");
+            }
+            function setCounter(func) {
+                if(func==="Add"){
+                    count++;
+                }else if(func==="Res"){
+                    count=0;
+                }else if(func==="Sub"){
+                    if(count>0){
+                        count--;
+                    }
+                }
+                document.getElementById("counter").textContent = count;
+            }
+        </script>
+    </body>
+</html>

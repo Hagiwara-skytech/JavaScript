@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript2-1</title>
+    </head>
+    <body>
+        <p>カウント：<span id="counter">0</span></p>
+        <button onclick="addCount()">＋１</button>
+        <button onclick="resetCount()">Reset</button>
+        <script>
+            let count = 0;
+            function addCount() {
+                // button tag onclick event function
+                count++;
+                document.getElementById("counter").textContent = count;
+            }
+            function resetCount() {
+                // button tag onclick event function
+                count=0;
+                document.getElementById("counter").textContent = count;
+            }
+        </script>
+    </body>
+</html>

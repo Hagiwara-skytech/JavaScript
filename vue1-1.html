@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Hello Vue.js</title>
+        <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <body>
+        <div id="app1">
+            app1: {{ message }}     <!-- Show Vue component -->
+        </div>
+        <script>
+            const App1 = {          // Define Vue component
+            data() {                // Define data method for Vue.js
+                return {
+                message : 'Hello Vue.js'
+                }
+            },
+            }
+            app1 = Vue.createApp(App1)  // create Vue application
+            app1.mount('#app1')         // mount Vue application to HTML
+        </script>
+    </body>
+</html>
