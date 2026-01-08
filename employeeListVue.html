@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Employee Mock (Vue.js)</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style>
+            body {
+            font-family: sans-serif;
+            padding: 20px;
+            }
+            button {
+            margin: 5px 0;
+            padding: 6px 10px;
+            cursor: pointer;
+            }
+            .card {
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <!-- ===== List View ===== -->
+            <div v-if="view === 'list'">
+                <h1>Employee List</h1>
+                <div
+                class="card"
+                v-for="emp in employees"
+                :key="emp.id"
+                >
+                <strong>{{ emp.name }}</strong><br>
+                {{ emp.position }}<br>
+                <button @click="showDetail(emp)">Detail</button>
+                </div>
+            </div>
+            <!-- ===== Detail View ===== -->
+            <div v-else>
+                <button @click="backToList">← Back</button>
+                <h2>{{ selected.name }}</h2>
+                <p><b>Position:</b> {{ selected.position }}</p>
+                <p><b>Summary:</b> {{ selected.summary }}</p>
+                <h3>Skills</h3>
+                <ul>
+                <li v-for="skill in selected.skills" :key="skill">
+                    {{ skill }}
+                </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            const App = {
+            data() {
+                return {
+                view: 'list',
+                selected: null,
+                employees: [
+                    {
+                    id: 1,
+                    name: "Ichiro Hagiwara",
+                    position: "Frontend Engineer",
+                    summary: "UI設計とJavaScript教育が得意",
+                    skills: ["JavaScript", "Vue.js", "HTML", "CSS"]
+                    },
+                    {
+                    id: 2,
+                    name: "Taro Yamada",
+                    position: "Backend Engineer",
+                    summary: "API設計とDB設計を担当",
+                    skills: ["Node.js", "Python", "SQL"]
+                    },
+                    {
+                    id: 3,
+                    name: "Hanako Suzuki",
+                    position: "Designer",
+                    summary: "UI/UXデザインと改善が専門",
+                    skills: ["Figma", "UI/UX"]
+                    }
+                ]
+                }
+            },
+            methods: {
+                showDetail(emp) {
+                this.selected = emp;
+                this.view = 'detail';
+                },
+                backToList() {
+                this.view = 'list';
+                this.selected = null;
+                }
+            }
+            }
+
+            Vue.createApp(App).mount('#app');
+        </script>
+    </body>
+</html>

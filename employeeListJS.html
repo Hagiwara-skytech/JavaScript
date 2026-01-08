@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Employee Mock (JavaScript)</title>
+        <style>
+            body {
+            font-family: sans-serif;
+            padding: 20px;
+            }
+            button {
+            margin: 5px 0;
+            padding: 6px 10px;
+            cursor: pointer;
+            }
+            .card {
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            /* ===== Data ===== */
+            const employees = [
+                {
+                    id: 1,
+                    name: "Ichiro Hagiwara",
+                    position: "Frontend Engineer",
+                    summary: "UI設計とJavaScript教育が得意",
+                    skills: ["JavaScript", "Vue.js", "HTML", "CSS"]
+                },
+                {
+                    id: 2,
+                    name: "Taro Yamada",
+                    position: "Backend Engineer",
+                    summary: "API設計とDB設計を担当",
+                    skills: ["Node.js", "Python", "SQL"]
+                },
+                {
+                    id: 3,
+                    name: "Hanako Suzuki",
+                    position: "Designer",
+                    summary: "UI/UXデザインと改善が専門",
+                    skills: ["Figma", "UI/UX"]
+                }
+            ];
+
+            let view = 'list';
+            /* ===== State ===== */
+            let selected = null;
+
+            /* ===== Render ===== */
+            function render() {
+                const app = document.getElementById('app');
+                app.innerHTML = '';
+
+                if (view === 'list') {
+                    const title = document.createElement('h1');
+                    title.textContent = 'Employee List';
+                    app.appendChild(title);
+
+                    employees.forEach(emp => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+
+                        card.innerHTML = `
+                            <strong>${emp.name}</strong><br>
+                            ${emp.position}<br>
+                        `;
+
+                        const btn = document.createElement('button');
+                        btn.textContent = 'Detail';
+                        btn.onclick = () => showDetail(emp);
+
+                        card.appendChild(btn);
+                        app.appendChild(card);
+                    });
+                }
+
+                if (view === 'detail') {
+                    const backBtn = document.createElement('button');
+                    backBtn.textContent = '← Back';
+                    backBtn.onclick = backToList;
+                    app.appendChild(backBtn);
+
+                    const h2 = document.createElement('h2');
+                    h2.textContent = selected.name;
+                    app.appendChild(h2);
+
+                    app.innerHTML += `
+                    <p><b>Position:</b> ${selected.position}</p>
+                    <p><b>Summary:</b> ${selected.summary}</p>
+                    <h3>Skills</h3>
+                    <ul>
+                        ${selected.skills.map(s => `<li>${s}</li>`).join('')}
+                    </ul>
+                    `;
+                }
+            }
+
+            /* ===== Actions ===== */
+            function showDetail(emp) {
+            selected = emp;
+            view = 'detail';
+            render();
+            }
+
+            function backToList() {
+            view = 'list';
+            selected = null;
+            render();
+            }
+
+            /* ===== Init ===== */
+            render();
+        </script>
+
+    </body>
+</html>
