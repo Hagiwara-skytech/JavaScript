@@ -8,6 +8,7 @@ const Counter1 = {
     methods: {
         addCount() {
             this.count+=1
+            this.plus=true
         },
         resetCount() {
             this.count=0
