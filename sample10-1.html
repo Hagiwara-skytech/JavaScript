@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>サンプル10-1</title>
+    </head>
+    <body>
+        <script>
+            function getWeek(day) {
+                let weekNum = day.getDay();
+                let week;
+                //条件分岐
+                switch (weekNum) {
+                    case 0: week = "日曜日"; break;
+                    case 1: week = "月曜日"; break;
+                    case 2: week = "火曜日"; break;
+                    case 3: week = "水曜日"; break;
+                    case 4: week = "木曜日"; break;
+                    case 5: week = "金曜日"; break;
+                    default: week = "土曜日"; break;
+                }
+                return week;
+            }
+            function display(day) {
+                document.write("今日は" + day.getFullYear() + "年" + (day.getMonth() + 1) +
+                "月" + day.getDate() + "日 " + getWeek(day) + "です。 <br>");
+                document.write("現在は" + day.getHours() + "時間" +
+                day.getMinutes() + "分" + day.getSeconds() + "秒です。<br>");
+            }
+            let today = new Date();
+            display(today);
+            today = new Date(2020, 0, 1);
+            display(today);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sample4</title>
+    </head>
+    <body>
+        <div id="message"></div>
+        <script>
+            let num=0;
+            /*
+                x = x + 1;
+                x += 1;
+                x ++;
+            */
+            document.getElementById("message").textContent = "Loop Staert!";
+
+            let sTime;
+            let eTime;
+            let time;
+
+            /*
+                i++
+            */
+            sTime = Date.now();
+            console.log('i++ start!' + sTime);
+            for(let i=0 ; i<1000000000 ; i++){
+            }
+            eTime = Date.now();
+            console.log('i++ finish!' + eTime);
+            time = eTime - sTime;
+            console.log('time:' + time);
+            dispTime('i++', time);
+
+            /*
+                i=i+1
+            */
+            sTime = Date.now();
+            console.log('i=i+1 start!' + sTime);
+            for(let i=0 ; i<1000000000 ; i=i+1){
+            }
+            eTime = Date.now();
+            console.log('i=i+1 finish!' + eTime);
+            time = eTime - sTime;
+            console.log('time:' + time);
+            dispTime('i=i+1', time);
+
+            /*
+                i+=1
+            */
+            sTime = Date.now();
+            console.log('i+=1 start!' + sTime);
+            for(let i=0 ; i<1000000000 ; i+=1){
+            }
+            eTime = Date.now();
+            console.log('i+=1 finish!' + eTime);
+            time = eTime - sTime;
+            console.log('time:' + time);
+            dispTime('i+=1', time);
+
+            /*
+                i=i+1
+            */
+            sTime = Date.now();
+            console.log('i=i+1 start!' + sTime);
+            for(let i=0 ; i<500000000 ; i=i+1){
+            }
+            eTime = Date.now();
+            console.log('i=i+1 finish!' + eTime);
+            time = eTime - sTime;
+            console.log('time:' + time);
+            dispTime('i=i+1', time);
+
+            /*
+                i+=1
+            */
+            sTime = Date.now();
+            console.log('i+=1 start!' + sTime);
+            for(let i=0 ; i<500000000 ; i+=1){
+            }
+            eTime = Date.now();
+            console.log('i+=1 finish!' + eTime);
+            time = eTime - sTime;
+            console.log('time:' + time);
+            dispTime('i+=1', time);
+
+            /*
+                i++
+            */
+            sTime = Date.now();
+            console.log('i++ start!' + sTime);
+            for(let i=0 ; i<500000000 ; i++){
+            }
+            eTime = Date.now();
+            console.log('i++ finish!' + eTime);
+            time = eTime - sTime;
+            console.log('time:' + time);
+            dispTime('i++', time);
+
+            document.getElementById("message").textContent = "Loop finish!";
+            function dispTime(arg1, arg2){
+                document.write(arg1 + ' : ' + arg2 + '<br>');                
+            }
+        </script>
+    </body>
+</html>
