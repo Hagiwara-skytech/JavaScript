@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js4-4</title>
+        <script src="https://unpkg.com/vue@3.0.0"></script>
+    </head>
+    <body>
+        <div id="counter">
+            <p>カウント：{{ count }}</p>
+            <button @click="addCount">＋１</button>
+            <!-- Hide the reset and minus buttons unless the count is positive(controlled by the 'plus' flag) -->
+            <button v-if="plus" @click="resetCount">Reset</button>
+            <button v-if="plus" @click="subCount">−１</button>
+        </div>
+        <script src="./counterVue4-4.js">
+        </script>
+    </body>
+</html>

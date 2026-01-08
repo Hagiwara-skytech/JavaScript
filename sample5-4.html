@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            let num = 111;
+            let result = num.toString();
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('resultのデータ型：', typeof result,'</br><br>');
+
+            num += 111;
+            document.write('num += 111 </br>');
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br><br>');
+
+            num = num + '111';
+            document.write("num += '111' </br>");
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br>');
+            document.write('num.toString：', num.toString(), '</br><br>');
+
+            num = parseInt(num);
+            document.write("num = parseInt(num)' </br>");
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br><br>');
+
+            num = parseInt(result);
+            document.write("num = parseInt(result)' </br>");
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br><br>');
+
+            num += parseInt(num.toString());
+            document.write("num += parseInt(num.toString())' </br>");
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br><br>');
+
+            num += Number("2");
+            document.write('num += Number("2") </br>');
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br><br>');
+
+            num += Number(num.toString());
+            document.write('num += Number(num.toString()) </br>');
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br><br>');
+
+            num += Number(num);
+            document.write('num += Number(num) </br>');
+            document.write('numのデータ型：', typeof num, '</br>');
+            document.write('num：', num, '</br><br>');
+        </script>
+    </body>
+</html>
